@@ -52,7 +52,13 @@ class SideMenu extends StatelessWidget {
                       height: defaultPadding / 2,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final url = Uri.parse(
+                            'https://drive.google.com/file/d/12k-zvhmMYYxnX-jFrNh_rRn6pPxrA4C2/view?usp=sharing');
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        }
+                      },
                       child: FittedBox(
                         child: Row(
                           children: [
